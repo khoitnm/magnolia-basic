@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE module SYSTEM "module.dtd">
 <module>
-    <name>psr-main</name>
+    <name>projectdemo-main</name>
     <displayName>${project.name}</displayName>
     <description>${project.description}</description>
-    <class>com.magnolia.basic.PycoSite</class>
-    <versionHandler>com.magnolia.basic.setup.ModuleVersionHandler</versionHandler>
+    <class>com.projectdemo.basic.ModuleBean</class>
+    <versionHandler>com.projectdemo.basic.setup.ModuleVersionHandler</versionHandler>
     <version>${project.version}-r${git.commitsCount}</version>
 
     <dependencies>

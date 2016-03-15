@@ -1,4 +1,4 @@
-package com.magnolia.basic.setup;
+package com.projectdemo.basic.setup;
 
 import info.magnolia.module.DefaultModuleVersionHandler;
 import info.magnolia.module.InstallContext;

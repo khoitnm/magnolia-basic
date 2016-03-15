@@ -3,16 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>psr</artifactId>
-        <groupId>com.magnolia.basic</groupId>
+        <artifactId>projectdemo</artifactId>
+        <groupId>com.projectdemo.basic</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>psr-main</artifactId>
-    <groupId>com.magnolia.basic</groupId>
+    <artifactId>projectdemo-main</artifactId>
+    <groupId>com.projectdemo.basic</groupId>
 
     <packaging>jar</packaging>
-    <name>psr-main module</name>
+    <name>projectdemo-main module</name>
 
     <dependencies>
         <!--Magnolia Core-->
@@ -58,7 +58,7 @@
     <!--Build's setting-->
     <build>
         <!-- default resources configuration which will filter the module descriptor -->
-        <finalName>psr-main</finalName>
+        <finalName>projectdemo-main</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>

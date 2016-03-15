@@ -1,4 +1,4 @@
-package com.magnolia.basic.setup.common;
+package com.projectdemo.basic.setup.common;
 
 /**
  * Repository constants for Pyco site.
