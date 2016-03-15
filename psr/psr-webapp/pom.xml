@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.pyco.site</groupId>
+    <artifactId>psr</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+  <artifactId>psr-webapp</artifactId>
+  <name>psr: webapp</name>
+  <packaging>war</packaging>
+
+  <dependencies>
+    <!-- Add your project specific dependencies here: -->
+      <dependency>
+          <groupId>info.magnolia.bundle</groupId>
+          <artifactId>magnolia-bundled-webapp</artifactId>
+          <version>${magnoliaVersion}</version>
+          <type>pom</type>
+      </dependency>
+      <dependency>
+          <groupId>info.magnolia.bundle</groupId>
+          <artifactId>magnolia-bundled-webapp</artifactId>
+          <version>${magnoliaVersion}</version>
+          <type>war</type>
+      </dependency>
+
+      <!--Import internal modules-->
+      <dependency>
+          <artifactId>psr-main</artifactId>
+          <groupId>com.pyco.site</groupId>
+          <version>${project.version}</version>
+      </dependency>
+      <dependency>
+          <artifactId>psr-theme</artifactId>
+          <groupId>com.pyco.site</groupId>
+          <version>${project.version}</version>
+      </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <configuration>
+          <!-- exclude jars copied "physically" from the webapp overlay - so we only get those resolved by Maven's dependency management -->
+          <dependentWarExcludes>WEB-INF/lib/*.jar</dependentWarExcludes>
+        </configuration>
+          <version>2.6</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>

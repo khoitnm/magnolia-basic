@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.pyco.site</groupId>
+  <artifactId>psr</artifactId>
+  <name>psr (parent pom)</name>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <properties>
+    <magnoliaVersion>5.4.5</magnoliaVersion>
+    <javaVersion>1.8</javaVersion>
+  </properties>
+
+  <!-- Fill the following in, so you can use the release plugin -->
+  <scm>
+    <connection/>
+    <developerConnection/>
+    <url/>
+  </scm>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>info.magnolia</groupId>
+        <artifactId>magnolia-empty-webapp</artifactId>
+        <version>${magnoliaVersion}</version>
+        <type>war</type>
+      </dependency>
+      <dependency>
+        <groupId>info.magnolia</groupId>
+        <artifactId>magnolia-empty-webapp</artifactId>
+        <version>${magnoliaVersion}</version>
+        <type>pom</type>
+        <!-- Well it looks like there is more to fix with MAGNOLIA-3545, commenting scope:import for now -->
+        <!--<scope>import</scope>-->
+      </dependency>
+      <dependency>
+        <!-- only necessary until MAGNOLIA-3545 is resolved -->
+        <groupId>info.magnolia</groupId>
+        <artifactId>magnolia-project</artifactId>
+        <version>${magnoliaVersion}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!--Magnolia UI Content App Framework 5.4.5-->
+      <dependency>
+        <groupId>info.magnolia.ui</groupId>
+        <artifactId>magnolia-ui-contentapp</artifactId>
+        <version>${magnoliaVersion}</version>
+      </dependency>
+
+      <!--Magnolia UI Image Provider Module 5.4.5-->
+      <dependency>
+        <groupId>info.magnolia.ui</groupId>
+        <artifactId>magnolia-ui-imageprovider</artifactId>
+        <version>${magnoliaVersion}</version>
+      </dependency>
+
+      <!--Magnolia UI Actionbar Module 5.4.5-->
+      <dependency>
+        <groupId>info.magnolia.ui</groupId>
+        <artifactId>magnolia-ui-actionbar</artifactId>
+        <version>${magnoliaVersion}</version>
+      </dependency>
+
+      <!--Magnolia UI Form Module 5.4.5-->
+      <dependency>
+        <groupId>info.magnolia.ui</groupId>
+        <artifactId>magnolia-ui-form</artifactId>
+        <version>${magnoliaVersion}</version>
+      </dependency>
+
+      <!--Magnolia UI Dialog App Framework 5.4.5-->
+      <dependency>
+        <groupId>info.magnolia.ui</groupId>
+        <artifactId>magnolia-ui-dialog</artifactId>
+        <version>${magnoliaVersion}</version>
+      </dependency>
+
+      <!--Magnolia UI Framework Module 5.4.5-->
+      <dependency>
+        <groupId>info.magnolia.ui</groupId>
+        <artifactId>magnolia-ui-framework</artifactId>
+        <version>${magnoliaVersion}</version>
+      </dependency>
+
+      <!--Magnolia UI Vaadin Common Widgets 5.4.5-->
+      <dependency>
+        <groupId>info.magnolia.ui</groupId>
+        <artifactId>magnolia-ui-vaadin-common-widgets</artifactId>
+        <version>${magnoliaVersion}</version>
+      </dependency>
+
+      <!--Magnolia UI Workbench 5.4.5-->
+      <dependency>
+        <groupId>info.magnolia.ui</groupId>
+        <artifactId>magnolia-ui-workbench</artifactId>
+        <version>${magnoliaVersion}</version>
+      </dependency>
+
+      <!--Magnolia UI API 5.4.5-->
+      <dependency>
+        <groupId>info.magnolia.ui</groupId>
+        <artifactId>magnolia-ui-api</artifactId>
+        <version>${magnoliaVersion}</version>
+      </dependency>
+
+      <!--Magnolia Imaging Support Module 3.2.5-->
+      <dependency>
+        <groupId>info.magnolia</groupId>
+        <artifactId>magnolia-imaging-support</artifactId>
+        <version>3.2.5</version>
+      </dependency>
+
+      <!--Magnolia Forum Module 3.5-->
+      <dependency>
+        <groupId>info.magnolia</groupId>
+        <artifactId>magnolia-module-forum</artifactId>
+        <version>3.5</version>
+      </dependency>
+
+      <!--Magnolia RSS Aggregator module-->
+      <dependency>
+        <groupId>info.magnolia</groupId>
+        <artifactId>magnolia-module-rssaggregator</artifactId>
+        <version>2.4.1</version>
+      </dependency>
+
+      <!-- TEST -->
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.8.2</version>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+
+  <build>
+    <plugins>
+
+      <!-- Provides git properties such as an increasing git.commitsCount used in Magnolia module descriptors -->
+      <plugin>
+        <groupId>ru.concerteza.buildnumber</groupId>
+        <artifactId>maven-jgit-buildnumber-plugin</artifactId>
+        <version>1.2.7</version>
+        <executions>
+          <execution>
+            <id>git-buildnumber</id>
+            <goals>
+              <goal>extract-buildnumber</goal>
+            </goals>
+            <phase>initialize</phase>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>${javaVersion}</source>
+          <target>${javaVersion}</target>
+        </configuration>
+      </plugin>
+    </plugins>
+
+    <!-- Default resources configuration which will filter your module descriptors -->
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*</include>
+        </includes>
+      </resource>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>META-INF/magnolia/*</include>
+        </includes>
+      </resource>
+    </resources>
+  </build>
+
+  <repositories>
+    <repository>
+      <id>magnolia.public</id>
+      <url>http://nexus.magnolia-cms.com/content/groups/public</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <!-- IF YOU NEED MODULES FROM THE ENTERPRISE VERSION, UNCOMMENT THE FOLLOWING REPOSITORY -->
+    <!--
+    <repository>
+      <id>magnolia.enterprise.releases</id>
+      <url>http://nexus.magnolia-cms.com/content/repositories/magnolia.enterprise.releases</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    -->
+    <repository>
+      <id>vaadin-addons</id>
+      <url>http://maven.vaadin.com/vaadin-addons</url>
+    </repository>
+  </repositories>
+
+  <modules>
+    <module>psr-webapp</module>
+    <module>psr-theme</module>
+    <module>psr-main</module>
+  </modules>
+</project>
