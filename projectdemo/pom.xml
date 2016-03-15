@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.magnolia.basic</groupId>
+  <groupId>com.projectdemo.basic</groupId>
   <artifactId>psr</artifactId>
   <name>psr (parent pom)</name>
   <version>1.0-SNAPSHOT</version>
@@ -212,8 +212,8 @@
   </repositories>
 
   <modules>
-    <module>psr-webapp</module>
-    <module>psr-theme</module>
-    <module>psr-main</module>
+    <module>projectdemo-webapp</module>
+    <module>projectdemo-theme</module>
+    <module>projectdemo-main</module>
   </modules>
 </project>
