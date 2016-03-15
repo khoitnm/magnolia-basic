@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.projectdemo.basic</groupId>
-    <artifactId>psr</artifactId>
+    <artifactId>projectdemo</artifactId>
     <version>1.0-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>projectdemo-webapp</artifactId>
-  <name>psr: webapp</name>
+  <name>projectdemo: webapp</name>
   <packaging>war</packaging>
 
   <dependencies>
