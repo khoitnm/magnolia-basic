@@ -1,4 +1,4 @@
-package com.pyco.site;
+package com.magnolia.basic;
 
 /**
  * This class is optional and represents the configuration for the psr-main module.

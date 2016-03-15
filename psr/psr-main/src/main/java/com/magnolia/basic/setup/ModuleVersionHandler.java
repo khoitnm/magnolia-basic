@@ -1,4 +1,4 @@
-package com.pyco.site.setup;
+package com.magnolia.basic.setup;
 
 import info.magnolia.module.DefaultModuleVersionHandler;
 import info.magnolia.module.InstallContext;

@@ -4,8 +4,8 @@
     <name>psr-main</name>
     <displayName>${project.name}</displayName>
     <description>${project.description}</description>
-    <class>com.pyco.site.PycoSite</class>
-    <versionHandler>com.pyco.site.setup.ModuleVersionHandler</versionHandler>
+    <class>com.magnolia.basic.PycoSite</class>
+    <versionHandler>com.magnolia.basic.setup.ModuleVersionHandler</versionHandler>
     <version>${project.version}-r${git.commitsCount}</version>
 
     <dependencies>
