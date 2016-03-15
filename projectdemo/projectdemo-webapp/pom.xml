@@ -32,11 +32,6 @@
           <groupId>com.projectdemo.basic</groupId>
           <version>${project.version}</version>
       </dependency>
-      <dependency>
-          <artifactId>projectdemo-theme</artifactId>
-          <groupId>com.projectdemo.basic</groupId>
-          <version>${project.version}</version>
-      </dependency>
   </dependencies>
 
   <build>

@@ -1,0 +1,12 @@
+class: info.magnolia.templating.definition.PageTemplateDefinition
+
+renderType: site
+type: master
+areas:
+  main:
+    type: list
+  footer:
+    editable: true
+
+i18nBasename: resources-messages
+title: Master Page

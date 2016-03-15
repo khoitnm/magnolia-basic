@@ -213,7 +213,6 @@
 
   <modules>
     <module>projectdemo-webapp</module>
-    <module>projectdemo-theme</module>
     <module>projectdemo-main</module>
   </modules>
 </project>

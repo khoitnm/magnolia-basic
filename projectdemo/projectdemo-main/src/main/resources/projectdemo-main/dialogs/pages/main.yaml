@@ -1,0 +1,45 @@
+form:
+  tabs:
+    - name: tabText
+      label: Title texts
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Title
+        - name: subTitle
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: Subtitle
+        - name: copyrightNote
+          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          label: Copyright note
+          description: Photographers who own the images used on this site
+  
+    - name: tabBgImage
+      label: Background
+      fields:
+        - name: introBgImage
+          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+          targetWorkspace: dam
+          appName: assets
+          label: Select image
+          description: Background image of the intro section
+          identifierToPathConverter:
+            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
+          contentPreviewDefinition:
+            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
+    - name: tabMeta
+      label: SEO
+      fields:
+        - name: keywords
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          i18n: true
+          label: Keywords
+          description: Keywords and description for search engine optimization
+          rows: 3
+        - name: description
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          i18n: true
+          label: Description
+          rows: 5
+actions: !include /projectdemo-main/dialogs/common/default-dialog-actions.yaml
+#actions: !include /documentation-examples-templates/dialogs/common/actions-block.yaml
