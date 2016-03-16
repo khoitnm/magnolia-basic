@@ -42,4 +42,3 @@ form:
           label: Description
           rows: 5
 actions: !include /projectdemo-main/dialogs/common/default-dialog-actions.yaml
-#actions: !include /documentation-examples-templates/dialogs/common/actions-block.yaml
