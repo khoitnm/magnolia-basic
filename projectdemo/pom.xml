@@ -21,6 +21,7 @@
 
   <dependencyManagement>
     <dependencies>
+      <!--
       <dependency>
         <groupId>info.magnolia</groupId>
         <artifactId>magnolia-empty-webapp</artifactId>
@@ -33,107 +34,131 @@
         <artifactId>magnolia-empty-webapp</artifactId>
         <version>${magnoliaVersion}</version>
         <type>pom</type>
-        <!-- Well it looks like there is more to fix with MAGNOLIA-3545, commenting scope:import for now -->
-        <!--<scope>import</scope>-->
-      </dependency>
+      </dependency>-->
+
+
+      <!--<dependency>
+        <groupId>info.magnolia</groupId>
+        <artifactId>magnolia-bundle-webapp</artifactId>
+        <version>${magnoliaVersion}</version>
+        <type>war</type>
+      </dependency>-->
+
       <dependency>
-        <!-- only necessary until MAGNOLIA-3545 is resolved -->
+        <groupId>info.magnolia.bundle</groupId>
+        <artifactId>magnolia-bundle-parent</artifactId>
+        <version>${magnoliaVersion}</version>
+        <type>pom</type>
+        <!-- for scope "import" see http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#Dependency_Scope -->
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>info.magnolia</groupId>
+        <artifactId>magnolia-bundle-webapp</artifactId>
+        <version>${magnoliaVersion}</version>
+        <type>pom</type>
+      </dependency>
+
+      <!--<dependency>
+        &lt;!&ndash; only necessary until MAGNOLIA-3545 is resolved &ndash;&gt;
         <groupId>info.magnolia</groupId>
         <artifactId>magnolia-project</artifactId>
         <version>${magnoliaVersion}</version>
         <type>pom</type>
         <scope>import</scope>
-      </dependency>
+      </dependency>-->
 
       <!--Magnolia UI Content App Framework 5.4.5-->
-      <dependency>
+<!--      <dependency>
         <groupId>info.magnolia.ui</groupId>
         <artifactId>magnolia-ui-contentapp</artifactId>
         <version>${magnoliaVersion}</version>
-      </dependency>
+      </dependency>-->
 
       <!--Magnolia UI Image Provider Module 5.4.5-->
-      <dependency>
+<!--      <dependency>
         <groupId>info.magnolia.ui</groupId>
         <artifactId>magnolia-ui-imageprovider</artifactId>
         <version>${magnoliaVersion}</version>
-      </dependency>
+      </dependency>-->
 
       <!--Magnolia UI Actionbar Module 5.4.5-->
-      <dependency>
+      <!--<dependency>
         <groupId>info.magnolia.ui</groupId>
         <artifactId>magnolia-ui-actionbar</artifactId>
         <version>${magnoliaVersion}</version>
-      </dependency>
+      </dependency>-->
 
       <!--Magnolia UI Form Module 5.4.5-->
-      <dependency>
+     <!-- <dependency>
         <groupId>info.magnolia.ui</groupId>
         <artifactId>magnolia-ui-form</artifactId>
         <version>${magnoliaVersion}</version>
-      </dependency>
+      </dependency>-->
 
       <!--Magnolia UI Dialog App Framework 5.4.5-->
-      <dependency>
+      <!--<dependency>
         <groupId>info.magnolia.ui</groupId>
         <artifactId>magnolia-ui-dialog</artifactId>
         <version>${magnoliaVersion}</version>
-      </dependency>
+      </dependency>-->
 
       <!--Magnolia UI Framework Module 5.4.5-->
-      <dependency>
+  <!--    <dependency>
         <groupId>info.magnolia.ui</groupId>
         <artifactId>magnolia-ui-framework</artifactId>
         <version>${magnoliaVersion}</version>
-      </dependency>
+      </dependency>-->
 
       <!--Magnolia UI Vaadin Common Widgets 5.4.5-->
-      <dependency>
+     <!-- <dependency>
         <groupId>info.magnolia.ui</groupId>
         <artifactId>magnolia-ui-vaadin-common-widgets</artifactId>
         <version>${magnoliaVersion}</version>
       </dependency>
+      -->
       <!-- When creating an item in contact app. It not found class info/magnolia/ui/vaadin/integration/jcr/VersionedJcrItemId -->
-      <dependency>
+      <!--<dependency>
         <groupId>info.magnolia.ui</groupId>
         <artifactId>magnolia-ui-vaadin-integration</artifactId>
         <version>${magnoliaVersion}</version>
-      </dependency>
+      </dependency>-->
 
       <!--Magnolia UI Workbench 5.4.5-->
-      <dependency>
+      <!--<dependency>
         <groupId>info.magnolia.ui</groupId>
         <artifactId>magnolia-ui-workbench</artifactId>
         <version>${magnoliaVersion}</version>
-      </dependency>
+      </dependency>-->
 
       <!--Magnolia UI API 5.4.5-->
-      <dependency>
+      <!--<dependency>
         <groupId>info.magnolia.ui</groupId>
         <artifactId>magnolia-ui-api</artifactId>
         <version>${magnoliaVersion}</version>
-      </dependency>
+      </dependency>-->
 
       <!--Magnolia Imaging Support Module 3.2.5-->
-      <dependency>
+<!--      <dependency>
         <groupId>info.magnolia</groupId>
         <artifactId>magnolia-imaging-support</artifactId>
         <version>3.2.5</version>
-      </dependency>
+      </dependency>-->
 
       <!--Magnolia Forum Module 3.5-->
-      <dependency>
+<!--      <dependency>
         <groupId>info.magnolia</groupId>
         <artifactId>magnolia-module-forum</artifactId>
         <version>3.5</version>
-      </dependency>
+      </dependency>-->
 
       <!--Magnolia RSS Aggregator module-->
-      <dependency>
+<!--      <dependency>
         <groupId>info.magnolia</groupId>
         <artifactId>magnolia-module-rssaggregator</artifactId>
         <version>2.4.1</version>
-      </dependency>
+      </dependency>-->
 
       <!-- TEST -->
       <dependency>
