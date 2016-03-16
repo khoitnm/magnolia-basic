@@ -27,6 +27,7 @@
         <version>${magnoliaVersion}</version>
         <type>war</type>
       </dependency>
+
       <dependency>
         <groupId>info.magnolia</groupId>
         <artifactId>magnolia-empty-webapp</artifactId>
@@ -90,6 +91,12 @@
       <dependency>
         <groupId>info.magnolia.ui</groupId>
         <artifactId>magnolia-ui-vaadin-common-widgets</artifactId>
+        <version>${magnoliaVersion}</version>
+      </dependency>
+      <!-- When creating an item in contact app. It not found class info/magnolia/ui/vaadin/integration/jcr/VersionedJcrItemId -->
+      <dependency>
+        <groupId>info.magnolia.ui</groupId>
+        <artifactId>magnolia-ui-vaadin-integration</artifactId>
         <version>${magnoliaVersion}</version>
       </dependency>
 
