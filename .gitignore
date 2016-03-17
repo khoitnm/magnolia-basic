@@ -1,1 +1,13 @@
 /.project
+/projectdemo_repositories
+/projectdemo/projectdemo-main/projectdemo-main.iml
+/projectdemo/projectdemo-main/target
+/projectdemo/projectdemo-webapp/projectdemo-webapp.iml
+/projectdemo/projectdemo-webapp/overlays
+/projectdemo/projectdemo-webapp/target
+/projectdemo/.idea
+/projectdemo/projectdemo.iml
+/.idea
+/projectdemo/projectdemo-main/.gitignore
+/projectdemo/projectdemo-main/src/main/main.iml
+/projectdemo/projectdemo-webapp/.gitignore
