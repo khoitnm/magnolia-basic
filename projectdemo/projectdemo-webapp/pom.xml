@@ -12,18 +12,17 @@
   <packaging>war</packaging>
 
   <dependencies>
-    <!-- Add your project specific dependencies here: -->
+      <!--
+        View the list of web apps here: https://documentation.magnolia-cms.com/display/DOCS/Webapp
+
+      We may need to handle all of every aspects about cache, resource, security...
+        So I just import them all.
+        -->
       <dependency>
           <groupId>info.magnolia.bundle</groupId>
-          <artifactId>magnolia-bundled-webapp</artifactId>
-          <version>${magnoliaVersion}</version>
+          <artifactId>magnolia-community-demo-webapp</artifactId>
           <type>pom</type>
-      </dependency>
-      <dependency>
-          <groupId>info.magnolia.bundle</groupId>
-          <artifactId>magnolia-bundled-webapp</artifactId>
-          <version>${magnoliaVersion}</version>
-          <type>war</type>
+          <scope>import</scope>
       </dependency>
 
       <!--Import internal modules-->

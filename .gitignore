@@ -11,3 +11,11 @@
 /projectdemo/projectdemo-main/.gitignore
 /projectdemo/projectdemo-main/src/main/main.iml
 /projectdemo/projectdemo-webapp/.gitignore
+/projectdemo/.settings
+/projectdemo/projectdemo-main/.settings
+/projectdemo/projectdemo-webapp/.settings
+/projectdemo/.project
+/projectdemo/projectdemo-main/.project
+/projectdemo/projectdemo-main/.classpath
+/projectdemo/projectdemo-webapp/.project
+/projectdemo/projectdemo-webapp/.classpath
