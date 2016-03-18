@@ -20,7 +20,7 @@
         -->
       <dependency>
           <groupId>info.magnolia.bundle</groupId>
-          <artifactId>magnolia-community-demo-webapp</artifactId>
+          <artifactId>magnolia-community-webapp</artifactId>
           <type>pom</type>
           <scope>import</scope>
       </dependency>

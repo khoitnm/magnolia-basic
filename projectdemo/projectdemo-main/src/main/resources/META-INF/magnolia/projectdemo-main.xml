@@ -13,6 +13,10 @@
             <name>core</name>
             <version>5.4.5/*</version>
         </dependency>
+        <dependency>
+            <name>rendering</name>
+            <version>5.4.5/*</version>
+        </dependency>
         <!-- Use the extended-templating-kit with the enterprise edition. -->
         <!--
           <dependency>

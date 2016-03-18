@@ -45,8 +45,7 @@
       </dependency>-->
       <dependency>
           <groupId>info.magnolia.bundle</groupId>
-          <artifactId>magnolia-community-demo-webapp</artifactId>
-          <!--<artifactId>magnolia-community-webapp</artifactId>-->
+          <artifactId>magnolia-community-webapp</artifactId>
           <version>${magnoliaVersion}</version>
           <type>pom</type>
           <scope>import</scope>

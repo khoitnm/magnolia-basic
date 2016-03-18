@@ -16,8 +16,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <![endif]-->
 
-<link rel="icon" href="${ctx.contextPath}/.resources/${theme.name}/favicon.ico" />
-
 [#list theme.cssFiles as cssFile]
     [#if cssFile.conditionalComment?has_content]<!--[if ${cssFile.conditionalComment}]>[/#if]
 <link rel="stylesheet" type="text/css" href="${cssFile.link}" media="${cssFile.media}" />

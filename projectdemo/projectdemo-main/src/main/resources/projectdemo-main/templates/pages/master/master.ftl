@@ -18,6 +18,9 @@
         [@cms.area name="header" /]
     </header>
 
+    [#--Stage Area--]
+    [@cms.area name="stage" /]
+
     [#--Main content--]
     [@cms.area name="main"/]
 

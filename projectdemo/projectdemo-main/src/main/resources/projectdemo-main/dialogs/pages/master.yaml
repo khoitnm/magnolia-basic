@@ -1,29 +1,29 @@
 form:
   tabs:
     - name: tabText
-      label: Title texts
+      label: projectdemo.dialog.pages.home.tabTitle.label
       fields:
         - name: title
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Title
+          label: projectdemo.dialog.pages.home.tabTitle.title
         - name: subTitle
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
-          label: Subtitle
+          label: projectdemo.dialog.pages.home.tabTitle.subTitle
         - name: copyrightNote
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
-          label: Copyright note
-          description: Photographers who own the images used on this site
-      label: SEO
+          label: projectdemo.dialog.pages.home.tabTitle.copyrightNote
+          description: projectdemo.dialog.pages.home.tabTitle.description
+      label: projectdemo.dialog.pages.home.tabSEO.label
       fields:
         - name: keywords
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           i18n: true
-          label: Keywords
+          label: projectdemo.dialog.pages.home.tabSEO.keywords
           description: Keywords and description for search engine optimization
           rows: 3
         - name: description
           class: info.magnolia.ui.form.field.definition.TextFieldDefinition
           i18n: true
-          label: Description
+          label: projectdemo.dialog.pages.home.tabSEO.description
           rows: 5
 actions: !include /projectdemo-main/dialogs/common/default-dialog-actions.yaml
