@@ -1,12 +1,24 @@
-class: info.magnolia.templating.definition.PageTemplateDefinition
+# When using 'renderType=site' all pages inherit their 'templateScript' value from the site definition which is
+# globally defined for whole the site. This is the reason no page YAML definition defines an explicit 'templateScript'
+# to use. The value inherited and currently used is:
+# templateScript: /projectdemo-main/templates/pages/main.ftl
+# This might be replaced with the template from 'travel-demo-marketing-tags':
+# templateScript: /travel-demo-marketing-tags/templates/pages/main-marketing-tags.ftl
 
+dialog: projectdemo-main:pages/master
+class: info.magnolia.templating.definition.PageTemplateDefinition
+templateScript: /projectdemo-main/templates/pages/master/master.ftl
 renderType: site
-type: master
+title: projectdemo.template.master.title
+
 areas:
   main:
     type: list
+    availableComponents:
+      textImage:
+        id: mtk:components/textImage
   footer:
     editable: true
 
-i18nBasename: resources-messages
-title: Master Page
+i18nBasename: mgnl-i18n.projectdemo-main-messages
+

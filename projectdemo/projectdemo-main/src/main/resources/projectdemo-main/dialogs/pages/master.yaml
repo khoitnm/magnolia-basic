@@ -13,21 +13,6 @@ form:
           class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
           label: Copyright note
           description: Photographers who own the images used on this site
-  
-    - name: tabBgImage
-      label: Background
-      fields:
-        - name: introBgImage
-          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-          targetWorkspace: dam
-          appName: assets
-          label: Select image
-          description: Background image of the intro section
-          identifierToPathConverter:
-            class: info.magnolia.dam.app.assets.field.translator.AssetCompositeIdKeyTranslator
-          contentPreviewDefinition:
-            contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
-    - name: tabMeta
       label: SEO
       fields:
         - name: keywords
