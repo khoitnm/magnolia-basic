@@ -43,13 +43,21 @@
         <version>${magnoliaVersion}</version>
         <type>war</type>
       </dependency>-->
-
       <dependency>
+          <groupId>info.magnolia.bundle</groupId>
+          <artifactId>magnolia-community-demo-webapp</artifactId>
+          <!--<artifactId>magnolia-community-webapp</artifactId>-->
+          <version>${magnoliaVersion}</version>
+          <type>pom</type>
+          <scope>import</scope>
+      </dependency>
+
+     <!-- <dependency>
         <groupId>info.magnolia.bundle</groupId>
         <artifactId>magnolia-bundle-parent</artifactId>
         <version>${magnoliaVersion}</version>
         <type>pom</type>
-        <!-- for scope "import" see http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#Dependency_Scope -->
+        &lt;!&ndash; for scope "import" see http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#Dependency_Scope &ndash;&gt;
         <scope>import</scope>
       </dependency>
 
@@ -58,7 +66,7 @@
         <artifactId>magnolia-bundle-webapp</artifactId>
         <version>${magnoliaVersion}</version>
         <type>pom</type>
-      </dependency>
+      </dependency>-->
 
       <!--<dependency>
         &lt;!&ndash; only necessary until MAGNOLIA-3545 is resolved &ndash;&gt;
@@ -170,7 +178,16 @@
     </dependencies>
   </dependencyManagement>
 
+    <!--<dependencies>
+        <dependency>
+            <groupId>info.magnolia.bundle</groupId>
+            <artifactId>magnolia-community-demo-webapp</artifactId>
+            &lt;!&ndash;<artifactId>magnolia-community-webapp</artifactId>&ndash;&gt;
+            <version>${magnoliaVersion}</version>
+            <type>war</type>
 
+        </dependency>
+    </dependencies>-->
   <build>
     <plugins>
 

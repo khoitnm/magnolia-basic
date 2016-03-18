@@ -9,23 +9,18 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>projectdemo-main</artifactId>
-    <groupId>com.projectdemo.basic</groupId>
 
     <packaging>jar</packaging>
     <name>projectdemo-main module</name>
 
     <dependencies>
-        <!--Magnolia Core-->
-        <dependency>
-            <groupId>info.magnolia</groupId>
-            <artifactId>magnolia-core</artifactId>
-        </dependency>
-
+        <!-- View the list of web apps here: https://documentation.magnolia-cms.com/display/DOCS/Webapp -->
+        <!-- I intended to include magnolia-community-demo-webapp to this module, but the current packaging type is 'jar', while packaging type of magnolia-community-demo-webapp is pom. So it doesn't work.
+         Therefore, I will use magnolia-ui-admincentral which includes magnolia-core and other packages. -->
         <!--Magnolia UI Admin Central-->
         <dependency>
             <groupId>info.magnolia.ui</groupId>
             <artifactId>magnolia-ui-admincentral</artifactId>
-            <version>${magnoliaVersion}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>jsoup</artifactId>
@@ -34,6 +29,13 @@
             </exclusions>
         </dependency>
 
+        <!--<dependency>
+            <groupId>info.magnolia</groupId>
+            <artifactId>magnolia-core</artifactId>
+        </dependency>-->
+
+
+
         <!--Servlet-->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -41,17 +43,12 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- LOG4J -->
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-        </dependency>
+        <!-- LOG4J: was included in slf4j-log4j12 -->
 
         <!--SLF4J-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.5</version>
         </dependency>
     </dependencies>
 
