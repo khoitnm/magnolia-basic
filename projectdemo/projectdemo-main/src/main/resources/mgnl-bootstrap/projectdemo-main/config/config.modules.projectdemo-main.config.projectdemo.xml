@@ -135,7 +135,7 @@
         <sv:value>superuser</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-        <sv:value>2016-03-18T10:21:12.835+07:00</sv:value>
+        <sv:value>2016-03-18T14:51:44.906+07:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
         <sv:value>superuser</sv:value>
@@ -244,13 +244,10 @@
             <sv:value>superuser</sv:value>
           </sv:property>
           <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-            <sv:value>2016-03-18T10:08:48.131+07:00</sv:value>
+            <sv:value>2016-03-18T15:00:07.484+07:00</sv:value>
           </sv:property>
           <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
             <sv:value>superuser</sv:value>
-          </sv:property>
-          <sv:property sv:name="renderType" sv:type="String">
-            <sv:value>freemarker</sv:value>
           </sv:property>
           <sv:property sv:name="title" sv:type="String">
             <sv:value>projectdemo.templates.pages.master.areas.header</sv:value>

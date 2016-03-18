@@ -11,6 +11,8 @@ renderType: site
 title: projectdemo.template.pages.home.title
 
 areas:
+  header:
+    editable: true
   main:
     type: list
     availableComponents:
