@@ -8,12 +8,14 @@
 <!--[if IE 8]><html class="no-js lt-ie9" xml:lang="${cmsfn.language()}" lang="${cmsfn.language()}"><![endif]-->
 <!--[if gt IE 8]><!--><html class="no-js" xml:lang="${cmsfn.language()}" lang="${cmsfn.language()}"><!--<![endif]-->
 <head>
+    [#--Initialize page--]
     [@cms.page /]
 
+    [#--Html Header Area--]
     [@cms.area name="htmlHeader"/]
 </head>
 <body>
-    [#--Header--]
+    [#--Header Area--]
     <header role="banner">
         [@cms.area name="header" /]
     </header>
@@ -21,14 +23,16 @@
     [#--Stage Area--]
     [@cms.area name="stage" /]
 
-    [#--Main content--]
+    [#--Navigation Area--]
+    [@cms.area name="navigation"/]
+
+    [#--Main Content Area--]
     [@cms.area name="main"/]
 
-[#--jquery and bootstrap js--]
-<script src="${ctx.contextPath}/.resources/projectdemo-main-theme/libs/bootstrap-3.3.5/jquery.js"></script>
-<script src="${ctx.contextPath}/.resources/projectdemo-main-theme/libs/bootstrap-3.3.5/bootstrap.min.js"></script>
-<script src="${ctx.contextPath}/.resources/projectdemo-main-theme/libs/bootstrap-3.3.5/jquery.easing.min.js"></script>
-[#--custom js--]
-<script src="${ctx.contextPath}/.resources/projectdemo-main-theme/js/one-pager.js"></script>
+    [#--Footer Area--]
+    [@cms.area name="footer" /]
+
+    [#--Html Footer Area--]
+    [@cms.area name="htmlFooter" /]
 </body>
 </html>
