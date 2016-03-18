@@ -29,11 +29,6 @@
             </exclusions>
         </dependency>
 
-        <!--<dependency>
-            <groupId>info.magnolia</groupId>
-            <artifactId>magnolia-core</artifactId>
-        </dependency>-->
-
         <dependency>
             <groupId>info.magnolia</groupId>
             <artifactId>magnolia-rendering</artifactId>
