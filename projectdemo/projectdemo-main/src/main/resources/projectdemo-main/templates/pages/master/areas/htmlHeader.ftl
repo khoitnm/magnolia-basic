@@ -2,7 +2,6 @@
 [#-- Page's model & definition, based on the rendering hierarchy and not the node hierarchy --]
 [#assign site = sitefn.site()!]
 [#assign theme = sitefn.theme(site)!]
-
 [#-------------- RENDERING --------------]
 <title>${content.windowTitle!content.title!}</title>
 <meta charset="utf-8" />

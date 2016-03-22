@@ -1,0 +1,29 @@
+form:
+  i18nBasename: mgnl-i18n.projectdemo-main-messages
+  label: projectdemo.dialog.components.productsList.label
+  tabs:
+    - name: tabProducts
+      label: projectdemo.dialog.components.productsList.tabProducts.label
+      fields:
+        - name: productList
+          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          label: projectdemo.dialog.components.productsList.tabProducts.productsList
+          i18n: true
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+          field:
+            name: compositeField
+            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+            i18n: true
+            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+            layout: vertical
+            fields:
+              - name: productId
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                i18n: true
+                label: projectdemo.dialog.components.productsList.tabProducts.productsList.label
+                targetWorkspace: products
+                appName: products
+                identifierToPathConverter:
+                  class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter
+
+actions: !include /projectdemo-main/dialogs/common/default-dialog-actions.yaml

@@ -1,0 +1,8 @@
+dialog: projectdemo-main:components/productsList
+renderType: freemarker
+templateScript: /projectdemo-main/templates/components/productsList.ftl
+modelClass: com.projectdemo.basic.model.ProductModel
+i18nBasename: mgnl-i18n.projectdemo-main-messages
+i18n: true
+title: projectdemo.template.components.productsList.title
+description: projectdemo.template.components.productsList.description

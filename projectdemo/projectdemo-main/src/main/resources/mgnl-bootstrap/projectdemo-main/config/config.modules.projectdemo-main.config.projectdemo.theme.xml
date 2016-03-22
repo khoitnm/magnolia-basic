@@ -25,12 +25,12 @@
     <sv:value>superuser</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-    <sv:value>2016-03-18T14:11:32.688+07:00</sv:value>
+    <sv:value>2016-03-18T18:01:46.524+07:00</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
     <sv:value>superuser</sv:value>
   </sv:property>
   <sv:property sv:name="name" sv:type="String">
-    <sv:value>projectdemo-theme</sv:value>
+    <sv:value>projectdemo-main-theme</sv:value>
   </sv:property>
 </sv:node>
