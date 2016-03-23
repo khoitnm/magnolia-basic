@@ -3,6 +3,7 @@ This is the code for setup a basic magnolia project.
 In your real project, just need to replace all projectdemo by your project name (should also refactor folders' name)
 
 Features:
++ Git version (not only GitCount): not finished yet.
 + Automatically import all static resources from prototype into theme configuration.
 + Home page
 + Product content app (Home page has a component to show products)
