@@ -18,17 +18,18 @@ import static org.apache.commons.lang.StringUtils.EMPTY;
 /**
  * Created by khoi.tran on 3/22/16.
  */
-public class ProjectDemoTemplatingFunctions {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProjectDemoTemplatingFunctions.class);
+public class CommonTemplatingFunctions {
+    public static final String FUNCTIONS_NAME = "commonfn";
+    private static final Logger LOGGER = LoggerFactory.getLogger(CommonTemplatingFunctions.class);
 
-    public Asset getAsset(ContentMap assetContent) {
-        return getAsset(assetContent.getJCRNode());
-    }
-
-    public Asset getAsset(Node assetNode) {
-        JcrAssetProvider provider = (JcrAssetProvider) _assetProviderRegistry.getProviderById(DEFAULT_JCR_PROVIDER_ID);
-        return new JcrAsset(provider, assetNode);
-    }
+//    public Asset getAsset(ContentMap assetContent) {
+//        return getAsset(assetContent.getJCRNode());
+//    }
+//
+//    public Asset getAsset(Node assetNode) {
+//        JcrAssetProvider provider = (JcrAssetProvider) _assetProviderRegistry.getProviderById(DEFAULT_JCR_PROVIDER_ID);
+//        return new JcrAsset(provider, assetNode);
+//    }
 
     public String getNodePathByIdentifier(String uuid) {
         return getNodePathByIdentifier(uuid, WEBSITE);

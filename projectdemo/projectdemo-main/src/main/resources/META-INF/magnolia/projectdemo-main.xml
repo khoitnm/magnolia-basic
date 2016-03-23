@@ -8,6 +8,15 @@
     <versionHandler>com.projectdemo.basic.setup.ModuleVersionHandler</versionHandler>
     <version>${project.version}-r${git.commitsCount}</version>
 
+    <components>
+        <id>main</id>
+        <component>
+            <type>com.projectdemo.basic.templating.functions.CommonTemplatingFunctions</type>
+            <implementation>com.projectdemo.basic.templating.functions.CommonTemplatingFunctions</implementation>
+            <scope>singleton</scope>
+        </component>
+    </components>
+
     <dependencies>
         <dependency>
             <name>core</name>

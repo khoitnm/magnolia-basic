@@ -1,14 +1,17 @@
 package com.projectdemo.basic.setup;
 
+import com.projectdemo.basic.templating.functions.CommonTemplatingFunctions;
 import info.magnolia.module.DefaultModuleVersionHandler;
 import info.magnolia.module.InstallContext;
 import info.magnolia.module.delta.Delta;
 import info.magnolia.module.delta.ModuleBootstrapTask;
 import info.magnolia.module.delta.Task;
 import info.magnolia.module.model.Version;
+import info.magnolia.rendering.module.setup.InstallRendererContextAttributeTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 /**
  * ModuleVersionHandler is where you will bootstrap general system configuration, order filters,
@@ -18,7 +21,18 @@ import java.util.List;
  */
 public class ModuleVersionHandler extends DefaultModuleVersionHandler {
     private static final Logger LOGGER = LoggerFactory.getLogger(ModuleVersionHandler.class);
-    private final Task _bootstrapModuleConfigTask = new ModuleBootstrapTask();
+
+    @Override
+    protected List<Task> getExtraInstallTasks(InstallContext installContext) {
+        List<Task> extraInstallTasks = new ArrayList<>(super.getExtraInstallTasks(installContext));
+        addTemplatingFunctionsInstallerTask(extraInstallTasks, CommonTemplatingFunctions.FUNCTIONS_NAME, CommonTemplatingFunctions.class.getName());
+        return extraInstallTasks;
+    }
+
+    private void addTemplatingFunctionsInstallerTask(List<Task> tasks, String templatingFunctionsName, String templatingFunctionClass) {
+        tasks.add(new InstallRendererContextAttributeTask("rendering", "freemarker",templatingFunctionsName, templatingFunctionClass));
+        tasks.add(new InstallRendererContextAttributeTask("site", "site", templatingFunctionsName, templatingFunctionClass));
+    }
 
     @Override
     protected List<Delta> getUpdateDeltas(final InstallContext installContext, final Version from) {

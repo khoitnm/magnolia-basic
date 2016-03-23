@@ -29,10 +29,18 @@
             </exclusions>
         </dependency>
 
+
+        <dependency>
+            <groupId>info.magnolia.dam</groupId>
+            <artifactId>magnolia-dam-app</artifactId>
+        </dependency>
+
+        <!--
+        magnolia-rendering was included inside magnolia-templating
         <dependency>
             <groupId>info.magnolia</groupId>
             <artifactId>magnolia-rendering</artifactId>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>info.magnolia</groupId>
