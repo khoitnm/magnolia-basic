@@ -36,16 +36,14 @@ public class CommonTemplatingFunctions {
 
     private DamTemplatingFunctions damTemplatingFunctions;
     private TemplatingFunctions templatingFunctions;
-    private LocaleUtils localeUtils;
     private AssetProviderRegistry assetProviderRegistry;
     private TemplateDefinitionAssignment templateDefinitionAssignment;
     private Provider<I18nContentSupport> i18nContentSupport;
 
     //CHECKSTYLE:OFF
     @Inject
-    public CommonTemplatingFunctions(Provider<I18nContentSupport> i18nContentSupport, TemplatingFunctions templatingFunctions, LocaleUtils localeUtils, AssetProviderRegistry assetProviderRegistry, TemplateDefinitionAssignment templateDefinitionAssignment, DamTemplatingFunctions damTemplatingFunctions) {
+    public CommonTemplatingFunctions(Provider<I18nContentSupport> i18nContentSupport, TemplatingFunctions templatingFunctions, AssetProviderRegistry assetProviderRegistry, TemplateDefinitionAssignment templateDefinitionAssignment, DamTemplatingFunctions damTemplatingFunctions) {
         this.templatingFunctions = templatingFunctions;
-        this.localeUtils = localeUtils;
         this.assetProviderRegistry = assetProviderRegistry;
         this.templateDefinitionAssignment = templateDefinitionAssignment;
         this.damTemplatingFunctions = damTemplatingFunctions;
@@ -76,6 +74,7 @@ public class CommonTemplatingFunctions {
      * @param basePropertyName the basic property name which is not related to locale.<br/>
      *                         For example: "productDescription", don't use locale suffix like "productDescription_de" or "productDescription_fr".
      * @return the data of property in corresponding locale.
+     * @deprecated cannot get property from contentMap.
      */
     public Object propertyByLocale(ContentMap contentMap, String basePropertyName) {
         String propertyNameByLocale = propertyNameByLocale(basePropertyName);
