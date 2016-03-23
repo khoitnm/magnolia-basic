@@ -2,8 +2,8 @@ form:
   i18nBasename: mgnl-i18n.projectdemo-main-messages
   label: projectdemo.dialog.components.productsList.label
   tabs:
-    - name: tabProducts
-      label: projectdemo.dialog.components.productsList.tabProducts.label
+    - name: mainTab
+      label: Main Tab
       fields:
         - name: productList
           class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition

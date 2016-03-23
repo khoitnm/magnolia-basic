@@ -1,0 +1,20 @@
+form:
+  i18nBasename: mgnl-i18n.projectdemo-main-messages
+  label: projectdemo.dialog.components.productsList.label
+  tabs:
+    - name: mainTab
+      label: Main Tab
+      fields:
+        - name: text
+          class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
+          label: projectdemo.dialog.components.richText.label
+          i18n: true
+          #configJsFile: /.resources/ckeditor/config-magnolia.js
+          alignment: true
+          #colors: true
+          images: true
+          source: true
+          tables: true
+          fonts: Arial/Arial,Helvetica, sans-serif;Times New Roman/Times New Roman, Times, serif;Verdana
+          fontSizes: 8px;10px;11px;12px;14px;16px;18px;20px;22px;24px;26px;28px;30px;32px;36px;40px;48px;56px;62px;68px;72px
+actions: !include /projectdemo-main/dialogs/common/default-dialog-actions.yaml

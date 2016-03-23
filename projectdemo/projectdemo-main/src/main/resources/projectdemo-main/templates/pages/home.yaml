@@ -20,6 +20,8 @@ areas:
         id: mtk:components/textImage
       productsList:
         id: projectdemo-main:components/productsList
+      richText:
+        id: projectdemo-main:components/richText  
   footer:
     editable: true
 

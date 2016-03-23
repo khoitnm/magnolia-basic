@@ -1,0 +1,7 @@
+dialog: projectdemo-main:components/richText
+renderType: freemarker
+templateScript: /projectdemo-main/templates/components/richText.ftl
+i18nBasename: mgnl-i18n.projectdemo-main-messages
+i18n: true
+title: projectdemo.template.components.richText.title
+description: projectdemo.template.components.richText.description
