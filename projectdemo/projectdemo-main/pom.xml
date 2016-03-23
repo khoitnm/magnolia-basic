@@ -34,7 +34,10 @@
             <groupId>info.magnolia.dam</groupId>
             <artifactId>magnolia-dam-app</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>info.magnolia.dam</groupId>
+            <artifactId>magnolia-dam-templating</artifactId>
+        </dependency>
         <!--
         magnolia-rendering was included inside magnolia-templating
         <dependency>

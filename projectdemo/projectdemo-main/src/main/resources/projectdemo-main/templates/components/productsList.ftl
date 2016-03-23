@@ -8,4 +8,5 @@
     Title: ${i18n[nodeProduct.title!]}<br/>
     Image: <img src="${damfn.getAssetLink(nodeProduct.image!)!}" alt=""><br />
     Description: ${nodeProduct[descriptionPropertyName]!}
+    Description 2: ${commonfn.propertyByLocale(item, "description")!}
 [/#list]
