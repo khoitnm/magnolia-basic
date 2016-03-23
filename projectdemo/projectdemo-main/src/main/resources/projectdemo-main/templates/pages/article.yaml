@@ -8,18 +8,14 @@
 dialog: projectdemo-main:pages/master
 class: info.magnolia.templating.definition.PageTemplateDefinition
 renderType: site
-title: projectdemo.template.pages.home.title
+title: projectdemo.template.pages.article.title
 
 areas:
-  header:
-    editable: true
   main:
     type: list
     availableComponents:
-      textImage:
-        id: mtk:components/textImage
-  footer:
-    editable: true
+      injectedScript:
+        id: projectdemo-main:components/injectedScript
 
 i18nBasename: mgnl-i18n.projectdemo-main-messages
 

@@ -1,0 +1,7 @@
+dialog: projectdemo-main:components/injectedScript
+renderType: freemarker
+templateScript: /projectdemo-main/templates/components/injectedScript.ftl
+i18nBasename: mgnl-i18n.projectdemo-main-messages
+i18n: true
+title: projectdemo.template.components.injectedScript.title
+description: projectdemo.template.components.injectedScript.description

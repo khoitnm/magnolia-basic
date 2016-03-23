@@ -1,0 +1,12 @@
+form:
+  i18nBasename: mgnl-i18n.projectdemo-main-messages
+  label: projectdemo.dialog.components.injectedScript.label
+  tabs:
+    - name: mainTab
+      label: Main Tab
+      fields:
+        - name: text
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          label: projectdemo.dialog.components.injectedScript.field.text.label
+          rows: 10
+actions: !include /projectdemo-main/dialogs/common/default-dialog-actions.yaml
