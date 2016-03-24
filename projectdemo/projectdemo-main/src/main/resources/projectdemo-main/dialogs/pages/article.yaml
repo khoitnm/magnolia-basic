@@ -45,22 +45,32 @@ form:
           label: pages.pageProperties.description.label
           description: pages.pageProperties.description.description
           rows: 5
-    # travel-home-page (search) specific properties
-    - name: tabSearch
-      label: pages.homePageProperties.tabSearch.label
+    # specific for article pages.
+    - name: tabRelatedPages
+      label: pages.articlePageProperties.tabRelatedPages.label
       fields:
-        - name: searchResultPage
-          class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-          i18n: false
-          required: false
-          label: pages.homePageProperties.searchResultPage.label
-          description: pages.homePageProperties.searchResultPage.description
-          targetWorkspace: website
-          appName: pages
-          identifierToPathConverter:
-            class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter
+        - name: productList
+          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          label: projectdemo.dialog.components.productsList.tabProducts.productsList
+          i18n: true
+          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
+          field:
+            name: compositeField
+            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+            i18n: true
+            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
+            layout: vertical
+            fields:
+              - name: productId
+                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+                i18n: true
+                label: projectdemo.dialog.components.productsList.tabProducts.productsList.label
+                targetWorkspace: products
+                appName: products
+                identifierToPathConverter:
+                  class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter
 actions:
   commit:
-    class: info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition
+    class: com.projectdemo.basic.dialog.action.SaveArticleDialogActionDefinition
   cancel:
     class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition

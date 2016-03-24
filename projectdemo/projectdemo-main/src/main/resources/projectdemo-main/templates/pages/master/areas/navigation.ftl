@@ -45,10 +45,10 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                     aria-expanded="false" aria-controls="navbar" title="${i18n['navigation.toggle']}">
-                <span class="sr-only">${i18n['projectdemo.dialog.pages.home.tabTitle.title']}</span>
+                <span class="sr-only">${i18n['projectdemo.dialog.pages.home.tabMain.title']}</span>
                 <span class="icon-bar">${i18n['projectdemo.templates.pages.master.areas.header']}</span>
                 <span class="icon-bar">${i18n['projectdemo.templates.pages.master.areas.footer']}</span>
-                <span class="icon-bar">${i18n['projectdemo.dialog.pages.home.tabSEO.description']}</span>
+                <span class="icon-bar">${i18n['projectdemo.dialog.pages.home.tabMetaData.description']}</span>
             </button>
             <a class="navbar-brand" href="${homeLink}">
 
