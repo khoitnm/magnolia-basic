@@ -16,6 +16,7 @@ areas:
     availableComponents:
       injectedScript:
         id: projectdemo-main:components/injectedScript
-
+      form:
+        id: form:components/form
 i18nBasename: mgnl-i18n.projectdemo-main-messages
 
