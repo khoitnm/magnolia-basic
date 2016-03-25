@@ -46,8 +46,22 @@ form:
           description: pages.pageProperties.description.description
           rows: 5
     # specific for article pages.
-    - name: tabRelatedPages #This tab will need a multivalue links, which cannot configured by YAML for page dialog, so we will configured by JCR.
-      label: pages.articlePageProperties.tabRelatedPages.label
+    - name: tabRelatedPages
+      label: projectdemo.dialog.pages.article.tabRelatedPages.label
+      fields:
+        - name: relatedPages
+          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
+          label: projectdemo.dialog.pages.relatedPages.field.relatedPages.label
+          i18n: true
+          field:
+            name: relatedPage
+            class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+            i18n: true
+            label: projectdemo.dialog.pages.relatedPages.field.relatedPages.relatedPage.label
+            targetWorkspace: website
+            appName: pages
+            identifierToPathConverter:
+              class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter
 actions:
   commit:
     class: com.projectdemo.basic.dialog.action.SaveArticleDialogActionDefinition
