@@ -46,29 +46,8 @@ form:
           description: pages.pageProperties.description.description
           rows: 5
     # specific for article pages.
-    - name: tabRelatedPages
+    - name: tabRelatedPages #This tab will need a multivalue links, which cannot configured by YAML for page dialog, so we will configured by JCR.
       label: pages.articlePageProperties.tabRelatedPages.label
-      fields:
-        - name: productList
-          class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
-          label: projectdemo.dialog.components.productsList.tabProducts.productsList
-          i18n: true
-          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
-          field:
-            name: compositeField
-            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
-            i18n: true
-            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
-            layout: vertical
-            fields:
-              - name: productId
-                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-                i18n: true
-                label: projectdemo.dialog.components.productsList.tabProducts.productsList.label
-                targetWorkspace: products
-                appName: products
-                identifierToPathConverter:
-                  class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter
 actions:
   commit:
     class: com.projectdemo.basic.dialog.action.SaveArticleDialogActionDefinition
