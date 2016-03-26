@@ -1,14 +1,12 @@
 package com.projectdemo.basic.common.util;
 
 
-import com.google.common.base.Joiner;
 import com.projectdemo.basic.common.constant.JcrConstants;
-import com.projectdemo.basic.common.exception.ProjectRepositoryException;
+import com.projectdemo.basic.common.exception.ProjectJcrException;
 import info.magnolia.cms.beans.config.ServerConfiguration;
 import info.magnolia.cms.util.QueryUtil;
 import info.magnolia.context.MgnlContext;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.http.util.TextUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,7 +21,6 @@ import javax.jcr.query.QueryResult;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Helper class using IoC, not static methods.
@@ -73,7 +70,7 @@ public class JcrQueryHelper {
         if (uuids == null || uuids.isEmpty()) {
             return result;
         }
-        StringBuilder jcr2Query = new StringBuilder("SELECT * FROM [nt:base] WHERE ");
+        StringBuilder jcr2Query = new StringBuilder("SELECT * FROM [").append(nodeType).append("] WHERE ");
         String uuidsCriteria = uuids.stream()
             .map(uuid -> "[jcr:uuid] = '" + uuid + "'")
             .collect(Collectors.joining(" OR ", "(", ")"));
@@ -151,13 +148,13 @@ public class JcrQueryHelper {
             result = queryResult.getRows().getSize();
         } catch (InvalidQueryException ex) {
             LOGGER.error("The query is invalid: {}", jcrSql2Query, ex);
-            throw new ProjectRepositoryException(String.format("Cannot search nodes in workspace '%s'. Invalid query, please view logInfo for more information.", workspace), ex);
+            throw new ProjectJcrException(String.format("Cannot search nodes in workspace '%s'. Invalid query, please view logInfo for more information.", workspace), ex);
         } catch (NoSuchWorkspaceException ex) {
             LOGGER.error("Cannot run query: {} \nRootcause: there is no workspace {}", jcrSql2Query, workspace, ex);
             //TODO should throw this Exception when we have enough ContentApp.
         } catch (RepositoryException ex) {
             LOGGER.error("Cannot run query: {}", jcrSql2Query, workspace, ex);
-            throw new ProjectRepositoryException(String.format("Cannot search nodes in workspace '%s'. Please view logInfo for more information.", workspace), ex);
+            throw new ProjectJcrException(String.format("Cannot search nodes in workspace '%s'. Please view logInfo for more information.", workspace), ex);
         }
         return result;
     }
@@ -182,13 +179,13 @@ public class JcrQueryHelper {
             }
         } catch (InvalidQueryException ex) {
             LOGGER.error("The query is invalid: {}", jcrSql2Query, ex);
-            throw new ProjectRepositoryException(String.format("Cannot search nodes in workspace '%s'. Invalid query, please view logInfo for more information.", workspace), ex);
+            throw new ProjectJcrException(String.format("Cannot search nodes in workspace '%s'. Invalid query, please view logInfo for more information.", workspace), ex);
         } catch (NoSuchWorkspaceException ex) {
             LOGGER.error("Cannot run query: {} \nRootcause: there is no workspace {}", jcrSql2Query, workspace, ex);
             //TODO should throw this Exception when we have enough ContentApp.
         } catch (RepositoryException ex) {
             LOGGER.error("Cannot run query: {}", jcrSql2Query, workspace, ex);
-            throw new ProjectRepositoryException(String.format("Cannot search nodes in workspace '%s'. Please view logInfo for more information.", workspace), ex);
+            throw new ProjectJcrException(String.format("Cannot search nodes in workspace '%s'. Please view logInfo for more information.", workspace), ex);
         }
         return result;
     }
@@ -203,13 +200,13 @@ public class JcrQueryHelper {
             }
         } catch (InvalidQueryException e) {
             LOGGER.error("The query is invalid: {}", query, e);
-            throw new ProjectRepositoryException(String.format("Invalid JCR query on workspace '%s'", workspace), e);
+            throw new ProjectJcrException(String.format("Invalid JCR query on workspace '%s'", workspace), e);
         } catch (NoSuchWorkspaceException e) {
             LOGGER.error("Not found workspace {}, so cannot run query '{}'", workspace, query, e);
-            throw new ProjectRepositoryException(String.format("Cannot run JCR Query because of not existing workspace '%s'", workspace), e);
+            throw new ProjectJcrException(String.format("Cannot run JCR Query because of not existing workspace '%s'", workspace), e);
         } catch (RepositoryException e) {
             LOGGER.error("Unknown error when running JCR query '{}' on workspace '{}'", query, workspace, e);
-            throw new ProjectRepositoryException(String.format("Cannot run JCR Query on workspace '%s'", workspace), e);
+            throw new ProjectJcrException(String.format("Cannot run JCR Query on workspace '%s'", workspace), e);
         }
         return result;
     }
@@ -222,13 +219,13 @@ public class JcrQueryHelper {
             return queryResult.getNodes();
         } catch (InvalidQueryException ex) {
             LOGGER.error("The query is invalid: {}", jcrSql2Query, ex);
-            throw new ProjectRepositoryException(String.format("Cannot search nodes in workspace '%s'. Invalid query, please view logInfo for more information.", workspace), ex);
+            throw new ProjectJcrException(String.format("Cannot search nodes in workspace '%s'. Invalid query, please view logInfo for more information.", workspace), ex);
         } catch (NoSuchWorkspaceException ex) {
             LOGGER.error("Cannot run query: {} \nRootcause: there is no workspace {}", jcrSql2Query, workspace, ex);
             //TODO should throw this Exception when we have enough ContentApp.
         } catch (RepositoryException ex) {
             LOGGER.error("Cannot run query: {}", jcrSql2Query, workspace, ex);
-            throw new ProjectRepositoryException(String.format("Cannot search nodes in workspace '%s'. Please view logInfo for more information.", workspace), ex);
+            throw new ProjectJcrException(String.format("Cannot search nodes in workspace '%s'. Please view logInfo for more information.", workspace), ex);
         }
         return null;
     }
@@ -241,7 +238,7 @@ public class JcrQueryHelper {
             result = nodes.get(0);
         } else if (nodes.size() > 1) {
             String msg = String.format("The query '%s' return %s nodes which is different from your expectation: only 1 node.", query, nodes.size());
-            throw new ProjectRepositoryException(msg);
+            throw new ProjectJcrException(msg);
         }
         return result;
     }

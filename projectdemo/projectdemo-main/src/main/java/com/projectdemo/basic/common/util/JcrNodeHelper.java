@@ -1,6 +1,6 @@
 package com.projectdemo.basic.common.util;
 
-import com.projectdemo.basic.common.exception.ProjectRepositoryException;
+import com.projectdemo.basic.common.exception.ProjectJcrException;
 import com.projectdemo.basic.common.exception.ProjectRuntimeException;
 import info.magnolia.cms.beans.config.ServerConfiguration;
 import info.magnolia.cms.util.QueryUtil;
@@ -35,7 +35,7 @@ public class JcrNodeHelper {
             node.getSession().save();
         } catch (RepositoryException e) {
             String msg = String.format("Cannot save node '%s'. Error: %s", node, e.getMessage());
-            throw new ProjectRepositoryException(msg, e);
+            throw new ProjectJcrException(msg, e);
         }
     }
 

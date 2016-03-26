@@ -7,18 +7,18 @@ package com.projectdemo.basic.common.exception;
  * @author khoi.tran
  */
 
-public class ProjectRepositoryException extends ProjectRuntimeException {
+public class ProjectJcrException extends ProjectRuntimeException {
     public static final int ERROR_CODE = 1100;
 
-    public ProjectRepositoryException(String message) {
+    public ProjectJcrException(String message) {
         super(ERROR_CODE, message);
     }
 
-    public ProjectRepositoryException(Throwable cause) {
+    public ProjectJcrException(Throwable cause) {
         super(ERROR_CODE, cause);
     }
 
-    public ProjectRepositoryException(String message, Throwable cause) {
+    public ProjectJcrException(String message, Throwable cause) {
         super(ERROR_CODE, message, cause);
     }
 }
