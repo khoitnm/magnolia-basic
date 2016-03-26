@@ -3,7 +3,11 @@ package com.projectdemo.basic.dialog.action;
 import info.magnolia.ui.admincentral.dialog.action.SaveDialogActionDefinition;
 
 /**
- * Created by khoi.tran on 3/24/16.
+ * This class not only save node, but also save node's relationship.
+ * 1) This is the two direction relationship, for example:
+ * pageA related to page B, it also means that pageB related to pageA.
+ * 2) It doesn't related to itself.
+ * @author khoi.tran on 3/24/16.
  */
 public class SaveNodeWithRelationDialogActionDefinition extends SaveDialogActionDefinition {
     private String relationProperty;

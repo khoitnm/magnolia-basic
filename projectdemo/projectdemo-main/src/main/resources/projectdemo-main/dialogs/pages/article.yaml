@@ -64,7 +64,7 @@ form:
               class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter
 actions:
   commit:
-    class: com.projectdemo.basic.dialog.action.SaveNodeWithRelationDialogActionDefinitionefinition
+    class: com.projectdemo.basic.dialog.action.SaveNodeWithRelationDialogActionDefinition
     relationProperty: relatedPages
     relationWorkspace: website
     relationNodeType: mgnl:page

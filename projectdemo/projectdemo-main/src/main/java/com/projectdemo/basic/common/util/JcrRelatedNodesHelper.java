@@ -1,7 +1,6 @@
 package com.projectdemo.basic.common.util;
 
 import com.projectdemo.basic.common.exception.ProjectJcrException;
-import info.magnolia.cms.beans.config.ServerConfiguration;
 import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.ui.vaadin.integration.jcr.JcrNodeAdapter;
 import org.slf4j.Logger;
@@ -9,6 +8,9 @@ import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.jcr.*;
+import javax.jcr.lock.LockException;
+import javax.jcr.nodetype.ConstraintViolationException;
+import javax.jcr.version.VersionException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,6 +22,8 @@ import java.util.stream.Collectors;
  * @deprecated Not finished yet:
  * 1) When remove an item in related list, the relatedNodes of removed items is not updated, so we must handle this case.
  * 2) When a node in related group is deleted, we don't update the relatedNodes links of remain nodes. So when rendering related node, must check whether the links to relatedNodes are good or not.
+ * 3) Cannot prevent user from saving relative to itself.
+ * 3) Not refactor yet.
  */
 public class JcrRelatedNodesHelper {
 
@@ -50,23 +54,30 @@ public class JcrRelatedNodesHelper {
                 removeNodeFromRelation(node, oldNode, propertyOfRelatedNodes);
             }
         }
+
         Node updatedNode = jcrNodeAdapter.applyChanges();
+        String updatedNodeIdentifier = NodeUtil.getNodeIdentifierIfPossible(updatedNode);
         List<Node> relatedNodesToUpdatedNode = getRelatedNodes(updatedNode, propertyOfRelatedNodes, workspaceOfRelatedNodes, nodeTypeOfRelatedNodes);
         for (Node relatedNode : relatedNodesToUpdatedNode) {
-
+            String relatedNodeIdentifier = NodeUtil.getNodeIdentifierIfPossible(relatedNode);
+            if (!relatedNodeIdentifier.equals(updatedNodeIdentifier)) {
+                List<String> relatedIdentifiersOfRelationNode = getRelatedNodeIdentifiers(relatedNode, propertyOfRelatedNodes);
+                if (relatedIdentifiersOfRelationNode == null) {
+                    relatedIdentifiersOfRelationNode = new ArrayList<>();
+                }
+                relatedIdentifiersOfRelationNode.add(updatedNodeIdentifier);
+                relatedIdentifiersOfRelationNode = relatedIdentifiersOfRelationNode.stream().distinct().collect(Collectors.toList());
+                saveRelatedNodesIdentifiers(relatedNode, relatedIdentifiersOfRelationNode, propertyOfRelatedNodes);
+            }
         }
         //The updatedNode will be saved after finishing the current method (in SaveNodeWithRelationDialogAction).
-
-
-//        List<Node> relatedNodesUpdatedGroup = new ArrayList<>();
-//        relatedNodesUpdatedGroup.add(updatedNode);
-//        relatedNodesUpdatedGroup.addAll(relatedNodesToUpdatedNode);
-//        saveRelatedNodesGroup(relatedNodesUpdatedGroup, propertyOfRelatedNodes);
     }
-
+    private List<String> getRelatedNodeIdentifiers(Node node, String propertyOfRelatedNodes){
+        return JcrPropertyHelper.tryGetListStrings(node, propertyOfRelatedNodes);
+    }
     private void removeNodeFromRelation(Node node, Node removedNode, String propertyOfRelatedNodes) {
         String removedNodeIdentifier = jcrNodeHelper.getNodeIdentifier(removedNode);
-        List<String> relatedNodesIds = JcrPropertyHelper.tryGetListStrings(node, propertyOfRelatedNodes);
+        List<String> relatedNodesIds = getRelatedNodeIdentifiers(node, propertyOfRelatedNodes);
         if (relatedNodesIds != null) {
             relatedNodesIds.remove(removedNodeIdentifier);
             saveRelatedNodesIdentifiers(node, relatedNodesIds, propertyOfRelatedNodes);
@@ -75,6 +86,11 @@ public class JcrRelatedNodesHelper {
 
     public List<Node> getRelatedNodes(Node currentNode, String propertyOfRelatedNodes, String workspaceOfRelatedNodes, String nodeTypeOfRelatedNodes) {
         List<String> relatedNodesIdsToCurrentNode = JcrPropertyHelper.tryGetListStrings(currentNode, propertyOfRelatedNodes);
+        //Don't save relation to itself.
+        String currentIdentifier = NodeUtil.getNodeIdentifierIfPossible(currentNode);
+        if (currentIdentifier != null){
+            relatedNodesIdsToCurrentNode.remove(currentIdentifier);
+        }
         return jcrQueryHelper.searchNodesByUuids(workspaceOfRelatedNodes, nodeTypeOfRelatedNodes, relatedNodesIdsToCurrentNode);
     }
 
@@ -94,10 +110,12 @@ public class JcrRelatedNodesHelper {
                 .collect(Collectors.toList());
         saveRelatedNodesIdentifiers(node, relatedNodesIdentifiers, propertyOfRelatedNodes);
     }
-
+    private void setRelatedNodesIdentifiers(Node node, List<String> relatedNodesIdentifiers, String propertyOfRelatedNodes) throws RepositoryException {
+        node.setProperty(propertyOfRelatedNodes, relatedNodesIdentifiers.toArray(new String[0]));
+    }
     private void saveRelatedNodesIdentifiers(Node node, List<String> relatedNodesIdentifiers, String propertyOfRelatedNodes) {
         try {
-            node.setProperty(propertyOfRelatedNodes, relatedNodesIdentifiers.toArray(new String[0]));
+            setRelatedNodesIdentifiers(node, relatedNodesIdentifiers, propertyOfRelatedNodes);
             jcrNodeHelper.save(node);
         } catch (RepositoryException e) {
             String msg = String.format("Cannot save related nodes identifiers into node.\n Node: %s.\n Related nodes' identifiers: %s", node, relatedNodesIdentifiers);
