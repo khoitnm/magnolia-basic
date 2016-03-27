@@ -24,6 +24,7 @@ import java.util.stream.Collectors;
  * 2) When a node in related group is deleted, we don't update the relatedNodes links of remain nodes. So when rendering related node, must check whether the links to relatedNodes are good or not.
  * 3) Cannot prevent user from saving relative to itself.
  * 3) Not refactor yet.
+ * 4) After saving relationship, if related nodes were published, their status must be changed to modified.
  */
 public class JcrRelatedNodesHelper {
 
