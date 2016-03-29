@@ -1,11 +1,11 @@
 [#assign path = content.@handle /]
-[#assign descriptionPropertyName = commonfn.propertyNameByLocale("description")/]
-[#assign titlePropertyName = commonfn.propertyNameByLocale("title")/]
-
-[#assign productList = cmsfn.children(cmsfn.contentByPath(content.@handle + "/productList")) /]
-[#list productList as item]
-    [#assign nodeProduct = model.getProductInfo(item.productId!)! /]
-Title: ${nodeProduct[titlePropertyName]!}<br/>
-Image: <img src="${damfn.getAssetLink(nodeProduct.image!)!}" alt=""><br/>
-Description: ${nodeProduct[descriptionPropertyName]!}<br/>
+[#assign productTitlePropertyName = commonfn.propertyNameByLocale("title")/]
+[#assign productDescriptionPropertyName = commonfn.propertyNameByLocale("description")/]
+[#assign productIds = content.productList]
+[#list productIds as productId]
+    [#assign nodeProduct = model.getProductInfo(productId!)! /]
+<div style="background-color: #DDD; border: 1px solid #CCC; padding: 10px;">
+    <h3>${nodeProduct[productTitlePropertyName]!}</h3>
+${nodeProduct[productDescriptionPropertyName]!}
+</div>
 [/#list]

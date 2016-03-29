@@ -5,7 +5,7 @@
 # This might be replaced with the template from 'travel-demo-marketing-tags':
 # templateScript: /travel-demo-marketing-tags/templates/pages/main-marketing-tags.ftl
 
-dialog: projectdemo-main:pages/home
+dialog: projectdemo-main:pages/article
 class: info.magnolia.templating.definition.PageTemplateDefinition
 renderType: site
 title: projectdemo.template.pages.article.title

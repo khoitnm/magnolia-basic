@@ -47,30 +47,26 @@ form:
           rows: 5
     # specific for article pages.
     - name: tabRelatedPages
-      label: pages.articlePageProperties.tabRelatedPages.label
+      label: projectdemo.dialog.pages.article.tabRelatedPages.label
       fields:
-        - name: productList
+        - name: relatedPages
           class: info.magnolia.ui.form.field.definition.MultiValueFieldDefinition
-          label: projectdemo.dialog.components.productsList.tabProducts.productsList
+          label: projectdemo.dialog.pages.relatedPages.field.relatedPages.label
           i18n: true
-          transformerClass: info.magnolia.ui.form.field.transformer.multi.MultiValueSubChildrenNodePropertiesTransformer
           field:
-            name: compositeField
-            class: info.magnolia.ui.form.field.definition.CompositeFieldDefinition
+            name: relatedPage
+            class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
             i18n: true
-            transformerClass: info.magnolia.ui.form.field.transformer.composite.NoOpCompositeTransformer
-            layout: vertical
-            fields:
-              - name: productId
-                class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-                i18n: true
-                label: projectdemo.dialog.components.productsList.tabProducts.productsList.label
-                targetWorkspace: products
-                appName: products
-                identifierToPathConverter:
-                  class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter
+            label: projectdemo.dialog.pages.relatedPages.field.relatedPages.relatedPage.label
+            targetWorkspace: website
+            appName: pages
+            identifierToPathConverter:
+              class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter
 actions:
   commit:
-    class: com.projectdemo.basic.dialog.action.SaveArticleDialogActionDefinition
+    class: com.projectdemo.basic.dialog.action.SaveNodeWithRelationDialogActionDefinition
+    relationProperty: relatedPages
+    relationWorkspace: website
+    relationNodeType: mgnl:page
   cancel:
     class: info.magnolia.ui.admincentral.dialog.action.CancelDialogActionDefinition

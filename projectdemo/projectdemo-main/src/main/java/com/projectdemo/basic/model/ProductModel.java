@@ -1,6 +1,6 @@
 package com.projectdemo.basic.model;
 
-import com.projectdemo.basic.common.ProjectdemoRepositoryConstants;
+import com.projectdemo.basic.common.constant.ProductConstants;
 import info.magnolia.jcr.util.ContentMap;
 import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.rendering.model.RenderingModel;
@@ -32,7 +32,7 @@ public class ProductModel<RD extends RenderableDefinition> extends RenderingMode
     public ContentMap getProductInfo(String productUUID) {
         if (StringUtils.isNotEmpty(productUUID)) {
             try {
-                Node nodeProduct = NodeUtil.getNodeByIdentifier(ProjectdemoRepositoryConstants.APP_PRODUCT, productUUID);
+                Node nodeProduct = NodeUtil.getNodeByIdentifier(ProductConstants.APP_PRODUCT, productUUID);
 
                 return nodeProduct == null ? null : _templatingFunctions.asContentMap(nodeProduct);
             } catch (RepositoryException e) {
