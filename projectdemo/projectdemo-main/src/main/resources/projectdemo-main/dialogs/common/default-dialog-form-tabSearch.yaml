@@ -1,0 +1,14 @@
+name: tabSearch
+label: projectdemo.dialog.pages.common.tabSearch.label
+i18nBasename: mgnl-i18n.projectdemo-main-messages
+fields:
+  - name: searchResultPage
+    class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
+    i18n: true
+    required: false
+    label: projectdemo.dialog.pages.common.tabSearch.searchResultPage.label
+    description: projectdemo.dialog.pages.common.tabSearch.searchResultPage.description
+    targetWorkspace: website
+    appName: pages
+    identifierToPathConverter:
+      class: info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter

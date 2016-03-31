@@ -1,0 +1,14 @@
+form:
+  i18nBasename: mgnl-i18n.projectdemo-main-messages
+  label: projectdemo.dialog.components.searchComponent.label
+  tabs:
+    - name: tabMain
+      label: projectdemo.dialog.components.searchComponent.tabMain.label
+      fields:
+        - name: title
+          class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+          i18n: true
+          label: projectdemo.dialog.components.searchComponent.tabMain.title.label
+          description: projectdemo.dialog.components.searchComponent.tabMain.title.description
+
+actions: !include /projectdemo-main/dialogs/common/default-dialog-actions.yaml

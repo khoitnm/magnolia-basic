@@ -1,4 +1,7 @@
 [#assign path = content.@handle /]
 Path: ${path}<br/>
 Content: ${content}<br/>
-RichText: ${cmsfn.decode(content).text!""}
+
+[#if content.text?has_content]
+RichText: ${cmsfn.decode(content)[commonfn.propertyNameByLocale("text")]}
+[/#if]

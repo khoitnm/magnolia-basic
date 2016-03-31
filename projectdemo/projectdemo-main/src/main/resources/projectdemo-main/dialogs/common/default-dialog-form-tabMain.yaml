@@ -1,0 +1,27 @@
+name: tabMain
+label: pages.pageProperties.tabMain.label
+i18nBasename: info.magnolia.templating.models.messages
+fields:
+  - name: title
+    class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+    i18n: true
+    label: pages.pageProperties.title.label
+    description: pages.pageProperties.title.description
+  - name: navigationTitle
+    class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+    i18n: true
+    label: pages.pageProperties.navigationTitle.label
+    description: pages.pageProperties.navigationTitle.description
+  - name: windowTitle
+    class: info.magnolia.ui.form.field.definition.TextFieldDefinition
+    i18n: true
+    label: pages.pageProperties.windowTitle.label
+    description: pages.pageProperties.windowTitle.description
+  - name: hideInNav
+    class: info.magnolia.ui.form.field.definition.CheckboxFieldDefinition
+    defaultValue: false
+    i18n: false
+    type: Boolean
+    label: pages.pageProperties.hideInNav.label
+    description: pages.pageProperties.hideInNav.description
+    buttonLabel: pages.pageProperties.hideInNav.buttonLabel

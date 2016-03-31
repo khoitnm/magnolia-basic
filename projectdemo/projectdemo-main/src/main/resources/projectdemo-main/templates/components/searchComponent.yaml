@@ -1,0 +1,8 @@
+dialog: projectdemo-main:components/searchComponent
+renderType: freemarker
+templateScript: /projectdemo-main/templates/components/searchComponent.ftl
+modelClass: com.projectdemo.basic.model.SearchModel
+i18nBasename: mgnl-i18n.projectdemo-main-messages
+i18n: true
+title: projectdemo.template.components.searchComponent.title
+description: projectdemo.template.components.searchComponent.description

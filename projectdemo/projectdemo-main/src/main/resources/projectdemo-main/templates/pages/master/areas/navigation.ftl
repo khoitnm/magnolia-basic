@@ -63,9 +63,21 @@
             </ul>
         </div>
     [/#if]
-
     </div>
-
 </nav>
 
-<div class="${spaceClass}"></div>
+[#include "/projectdemo-main/templates/macros/searchForm.ftl"]
+
+[#assign searchProperty = content.searchResultPage! /]
+[#if searchProperty?has_content]
+    [#assign searchResultPage = cmsfn.link(cmsfn.contentById(searchProperty)) /]
+[/#if]
+
+[#assign aboutPage=model.aboutDemoLink!]
+[#-- Only when the search result page was set should the form be displayed --]
+<div>
+<br/>
+[#if searchResultPage?exists]
+    [@searchForm action=searchResultPage! inputName="queryStr" placeholder="SEARCH" /]
+[/#if]
+</div>

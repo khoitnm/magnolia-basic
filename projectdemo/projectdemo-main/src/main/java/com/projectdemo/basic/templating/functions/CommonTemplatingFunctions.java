@@ -1,13 +1,13 @@
 package com.projectdemo.basic.templating.functions;
 
 import info.magnolia.cms.i18n.I18nContentSupport;
+import info.magnolia.context.MgnlContext;
 import info.magnolia.dam.api.Asset;
 import info.magnolia.dam.api.AssetProviderRegistry;
 import info.magnolia.dam.jcr.DamConstants;
 import info.magnolia.dam.jcr.JcrAsset;
 import info.magnolia.dam.jcr.JcrAssetProvider;
 import info.magnolia.dam.templating.functions.DamTemplatingFunctions;
-import info.magnolia.i18nsystem.util.LocaleUtils;
 import info.magnolia.jcr.util.ContentMap;
 import info.magnolia.rendering.template.assignment.TemplateDefinitionAssignment;
 import info.magnolia.templating.functions.TemplatingFunctions;
@@ -17,13 +17,19 @@ import org.slf4j.LoggerFactory;
 import javax.inject.Inject;
 import javax.inject.Provider;
 import javax.jcr.Node;
+import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
-
-import java.util.Collection;
+import javax.jcr.Session;
+import javax.jcr.query.Query;
+import javax.jcr.query.QueryManager;
+import javax.jcr.query.QueryResult;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 
 import static info.magnolia.jcr.util.NodeUtil.getNodeByIdentifier;
 import static info.magnolia.repository.RepositoryConstants.WEBSITE;
+import static javax.jcr.query.Query.JCR_SQL2;
 import static org.apache.commons.lang.StringUtils.EMPTY;
 
 /**
@@ -103,5 +109,34 @@ public class CommonTemplatingFunctions {
             LOGGER.warn("Can't get node path by identifier" + e.getMessage(), e);
         }
         return path;
+    }
+
+    public Query createQuery(final String queryString, String workspace) {
+        Query query = null;
+        try {
+            final Session jcrSession = MgnlContext.getJCRSession(workspace);
+            final QueryManager queryManager = jcrSession.getWorkspace().getQueryManager();
+            query = queryManager.createQuery(queryString, JCR_SQL2);
+        } catch (RepositoryException e) {
+            LOGGER.error("Can't create query '" + queryString + "'.", e);
+        }
+        return query;
+    }
+
+    public List<Node> search(Query query) {
+        List<Node> itemsList = new LinkedList<>();
+        NodeIterator iterator = null;
+        try {
+            final QueryResult result = query.execute();
+            iterator = result.getNodes();
+        } catch (RepositoryException e) {
+            LOGGER.error("Can't get entries.", e);
+        }
+        if (iterator != null && iterator.getSize() > 0) {
+            while (iterator.hasNext()) {
+                itemsList.add(iterator.nextNode());
+            }
+        }
+        return itemsList;
     }
 }
