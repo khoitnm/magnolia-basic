@@ -112,11 +112,30 @@ subApps:
         - name: tree
           class: info.magnolia.ui.workbench.tree.TreePresenterDefinition
           columns: &myColumns
-            - name: name
+            - name: traineeNo
               editable: true
               sortable: true
               propertyName: traineeNo
               class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+              label: projectdemo.app.trainees.treeView.traineeNo
+            - name: traineeId
+              editable: true
+              sortable: true
+              propertyName: traineeId
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+              label: projectdemo.app.trainees.treeView.traineeId
+            - name: firstName
+              editable: true
+              sortable: true
+              propertyName: firstName
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+              label: projectdemo.app.trainees.treeView.firstName
+            - name: lastName
+              editable: true
+              sortable: true
+              propertyName: lastName
+              class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
+              label: projectdemo.app.trainees.treeView.lastName
             - name: status
               width: 45
               displayInChooseDialog: false
@@ -175,6 +194,11 @@ subApps:
                 required: true
                 type: Long
                 label: projectdemo.app.trainees.form.traineeNo
+              - name: traineeId
+                class: com.projectdemo.basic.form.field.definition.StringIdentifyFieldDefinition
+                required: true
+                type: String
+                label: projectdemo.app.trainees.form.traineeId
               - name: firstName
                 class: info.magnolia.ui.form.field.definition.TextFieldDefinition
                 i18n: true
@@ -187,7 +211,6 @@ subApps:
                 class: info.magnolia.ui.form.field.definition.DateFieldDefinition
                 dateFormat: dd/MM/yyyy
                 time: true
-                timeFormat: hh:mm
                 type: Date
                 label: projectdemo.app.trainees.form.dateOfBirth
               - name: image
@@ -200,11 +223,11 @@ subApps:
                 contentPreviewDefinition:
                   contentPreviewClass: info.magnolia.dam.app.ui.field.DamFilePreviewComponent
               - name: joinedDate
-                class: info.magnolia.ui.form.field.definition.DateFieldDefinition
+                class: com.projectdemo.basic.form.field.definition.AutoFillDateFieldDefinition
                 dateFormat: dd/MM/yyyy
                 time: true
-                timeFormat: hh:mm
                 type: Date
+                required: true
                 label: projectdemo.app.trainees.form.joinedDate
               - name: description
                 class: info.magnolia.ui.form.field.definition.RichTextFieldDefinition
