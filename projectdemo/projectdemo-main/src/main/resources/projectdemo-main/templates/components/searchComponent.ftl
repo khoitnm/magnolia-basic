@@ -18,7 +18,6 @@
         [/#list]
     [/#if]
 </div>
-</div>
 
 [#else]
     [#if cmsfn.isEditMode()]

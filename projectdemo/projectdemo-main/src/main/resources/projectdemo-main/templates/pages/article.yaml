@@ -18,5 +18,7 @@ areas:
         id: projectdemo-main:components/injectedScript
       form:
         id: form:components/form
+      breadcrumb:
+        id: projectdemo-main:components/breadcrumb
 i18nBasename: mgnl-i18n.projectdemo-main-messages
 

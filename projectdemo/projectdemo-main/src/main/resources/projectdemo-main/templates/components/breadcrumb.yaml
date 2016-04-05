@@ -1,0 +1,7 @@
+renderType: freemarker
+templateScript: /projectdemo-main/templates/components/breadcrumb.ftl
+modelClass: com.projectdemo.basic.model.BreadcrumbModel
+i18nBasename: mgnl-i18n.projectdemo-main-messages
+i18n: true
+title: projectdemo.template.components.breadcrumbComponent.title
+description: projectdemo.template.components.breadcrumbComponent.description

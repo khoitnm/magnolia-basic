@@ -13,6 +13,9 @@ title: projectdemo.template.pages.home.title
 areas:
   header:
     editable: true
+    availableComponents:
+      breadcrumb:
+        id: projectdemo-main:components/breadcrumb
   main:
     type: list
     availableComponents:
@@ -21,7 +24,7 @@ areas:
       productsList:
         id: projectdemo-main:components/productsList
       richText:
-        id: projectdemo-main:components/richText  
+        id: projectdemo-main:components/richText
   footer:
     editable: true
 

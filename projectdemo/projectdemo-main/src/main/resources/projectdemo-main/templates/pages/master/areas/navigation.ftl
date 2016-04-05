@@ -66,6 +66,10 @@
     </div>
 </nav>
 
+<br/>
+Breadcrumb:
+<br/>
+
 [#include "/projectdemo-main/templates/macros/searchForm.ftl"]
 
 [#assign searchProperty = content.searchResultPage! /]
