@@ -35,6 +35,8 @@ subApps:
               items:
                 - name: editItem
                 - name: deleteItem
+                - name: activate
+                - name: deactivate
           availability:
             nodeTypes:
               - mgnl:product
@@ -72,6 +74,20 @@ subApps:
       deleteItem:
         icon: icon-delete
         class: info.magnolia.ui.framework.action.DeleteItemActionDefinition
+      activate:
+        command: activate
+        icon: icon-publish
+        catalog: versioned
+        class: info.magnolia.ui.framework.action.ActivationActionDefinition
+        availability:
+          multiple: true
+      deactivate:
+        command: deactivate
+        icon: icon-unpublish
+        catalog: versioned
+        class: info.magnolia.ui.framework.action.DeactivationActionDefinition
+        availability:
+          multiple: true
     workbench:
       dropConstraintClass: info.magnolia.ui.workbench.tree.drop.AlwaysTrueDropConstraint
       editable: false

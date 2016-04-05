@@ -7,6 +7,7 @@ import info.magnolia.cms.util.QueryUtil;
 import info.magnolia.context.MgnlContext;
 import info.magnolia.jcr.util.NodeTypes;
 import info.magnolia.jcr.util.NodeUtil;
+import info.magnolia.jcr.util.PropertyUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.jackrabbit.JcrConstants;
 import org.slf4j.Logger;
@@ -14,6 +15,8 @@ import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.jcr.*;
+import javax.jcr.query.Query;
+import javax.jcr.query.QueryResult;
 import java.security.AccessControlException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -183,4 +186,27 @@ public class JcrNodeHelper {
         return nodes;
     }
 
+    public static synchronized long getNextMaxAvailableId(final String nodeType, final String workspace, final String fieldName) {
+        long maxId = getMaxIdByNodeTypeWorkspace(nodeType, workspace, fieldName);
+        return maxId + 1;
+    }
+
+    private static long getMaxIdByNodeTypeWorkspace(final String nodeType, final String workspace, final String fieldName) {
+        final String statement = String.format("select * from [%s] where [jcr:uuid] is not null order by name desc", nodeType);
+        try {
+            Query query = MgnlContext.getJCRSession(workspace).getWorkspace().getQueryManager().createQuery(statement, Query.JCR_SQL2);
+            query.setLimit(1);
+
+            QueryResult result = query.execute();
+            final NodeIterator iterator = result.getNodes();
+            if (iterator.hasNext()) {
+                final Node node = iterator.nextNode();
+                return PropertyUtil.getLong(node, fieldName, 0L);
+            }
+
+        } catch (RepositoryException e) {
+            LOGGER.error("cannot get maximum id", e);
+        }
+        return 0L;
+    }
 }

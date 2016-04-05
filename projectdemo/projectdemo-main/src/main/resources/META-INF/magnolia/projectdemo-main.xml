@@ -40,12 +40,22 @@
     </dependencies>
 
     <repositories>
+        <!--App Product-->
         <repository>
             <name>magnolia</name>
             <workspaces>
                 <workspace>products</workspace>
             </workspaces>
             <nodeTypeFile>/mgnl-nodetypes/products-nodetypes.xml</nodeTypeFile>
+        </repository>
+
+        <!--App Trainee-->
+        <repository>
+            <name>magnolia</name>
+            <workspaces>
+                <workspace>trainees</workspace>
+            </workspaces>
+            <nodeTypeFile>/mgnl-nodetypes/trainees-nodetypes.xml</nodeTypeFile>
         </repository>
     </repositories>
 </module>
