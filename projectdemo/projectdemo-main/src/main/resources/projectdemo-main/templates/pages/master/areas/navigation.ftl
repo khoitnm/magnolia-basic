@@ -2,7 +2,6 @@
 [#assign homeLink = cmsfn.link(cmsfn.siteRoot(content))!"/" /]
 [#assign pages = model.rootPages! /]
 [#assign childPages = model.childPages! /]
-
 [#assign spaceClass = "navbar-spacer" /]
 [#if childPages?has_content]
     [#assign spaceClass = "navbar-spacer-children"]
@@ -26,6 +25,7 @@
     [#assign localizedLinks = cmsfn.localizedLinks()!]
     [#if localizedLinks?has_content]
         [#assign languages = localizedLinks?keys]
+        <h2>Multi languages:</h2>
         <div id="language-link">
             <ul>
             [#-- Current locale should not be linked. --]
@@ -42,18 +42,7 @@
         </div>
     [/#if]
 
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar" title="${i18n['navigation.toggle']}">
-                <span class="sr-only">${i18n['projectdemo.dialog.pages.home.tabMain.title']}</span>
-                <span class="icon-bar">${i18n['projectdemo.templates.pages.master.areas.header']}</span>
-                <span class="icon-bar">${i18n['projectdemo.templates.pages.master.areas.footer']}</span>
-                <span class="icon-bar">${i18n['projectdemo.dialog.pages.home.tabMetaData.description']}</span>
-            </button>
-            <a class="navbar-brand" href="${homeLink}">
-
-            </a>
-        </div>
+        <h2>Navigation:</h2>
     [#if childPages?has_content]
         <div id="navbar-secondary" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -65,10 +54,6 @@
     [/#if]
     </div>
 </nav>
-
-<br/>
-Breadcrumb:
-<br/>
 
 [#include "/projectdemo-main/templates/macros/searchForm.ftl"]
 

@@ -46,64 +46,7 @@ subApps:
           availability:
             nodeTypes:
               - mgnl:trainee
-    actions:
-      addFolder:
-        icon: icon-add-folder
-        class: info.magnolia.ui.framework.action.AddFolderActionDefinition
-        label: projectdemo.app.trainees.action.addFolder
-        availability:
-          root: true
-      editFolder:
-        icon: icon-edit
-        dialogName: ui-framework:folder
-        class: info.magnolia.ui.framework.action.OpenEditDialogActionDefinition
-        label: projectdemo.app.trainees.action.editFolder
-      deleteFolder:
-        icon: icon-delete
-        class: info.magnolia.ui.framework.action.DeleteItemActionDefinition
-        label: projectdemo.app.trainees.action.deleteFolder
-      addItem:
-        subAppId: detail
-        icon: icon-add-item
-        nodeType: mgnl:trainee
-        appName: trainees
-        class: info.magnolia.ui.contentapp.detail.action.CreateItemActionDefinition
-        label: projectdemo.app.trainees.action.addItem
-        availability:
-          root: true
-          nodeTypes:
-            - mgnl:folder
-      editItem:
-        subAppId: detail
-        icon: icon-edit
-        appName: trainees
-        class: info.magnolia.ui.contentapp.detail.action.EditItemActionDefinition
-        label: projectdemo.app.trainees.action.editItem
-        availability:
-          nodeTypes:
-            - mgnl:trainee
-      deleteItem:
-        icon: icon-delete
-        class: info.magnolia.ui.framework.action.DeleteItemActionDefinition
-        label: projectdemo.app.trainees.action.deleteItem
-        availability:
-          multiple: true
-      publish:
-        command: activate
-        icon: icon-publish
-        catalog: versioned
-        class: info.magnolia.ui.framework.action.ActivationActionDefinition
-        label: projectdemo.app.trainees.action.publish
-        availability:
-          multiple: true
-      unpublish:
-        command: deactivate
-        icon: icon-unpublish
-        catalog: versioned
-        class: info.magnolia.ui.framework.action.DeactivationActionDefinition
-        label: projectdemo.app.trainees.action.unpublish
-        availability:
-          multiple: true
+    actions: !include /projectdemo-main/apps/common/default-app-bar-actions.yaml
     workbench:
       dropConstraintClass: info.magnolia.ui.workbench.tree.drop.AlwaysTrueDropConstraint
       editable: false
@@ -112,10 +55,10 @@ subApps:
         - name: tree
           class: info.magnolia.ui.workbench.tree.TreePresenterDefinition
           columns: &myColumns
-            - name: traineeNo
+            - name: name
               editable: true
               sortable: true
-              propertyName: traineeNo
+              propertyName: name
               class: info.magnolia.ui.workbench.column.definition.PropertyColumnDefinition
               label: projectdemo.app.trainees.treeView.traineeNo
             - name: traineeId
@@ -156,7 +99,6 @@ subApps:
         - name: search
           class: info.magnolia.ui.workbench.search.SearchPresenterDefinition
           columns: *myColumns
-
     imageProvider:
        class: info.magnolia.dam.app.ui.imageprovider.DamLinkImageProviderDefinition
        damLinkPropertyName: image
@@ -164,7 +106,7 @@ subApps:
       includeProperties: false
       workspace: trainees
       rootPath: /
-      defaultOrder: traineeNo
+      defaultOrder: name
       nodeTypes:
         - name: mgnl:trainee
           icon: icon-items
@@ -173,12 +115,7 @@ subApps:
   detail:
     subAppClass: info.magnolia.ui.contentapp.detail.DetailSubApp
     class: info.magnolia.ui.contentapp.detail.DetailSubAppDescriptor
-    actions:
-      commit:
-        implementationClass: info.magnolia.ui.form.action.SaveFormAction
-        class: info.magnolia.ui.form.action.SaveFormActionDefinition
-      cancel:
-        class: info.magnolia.ui.form.action.CancelFormActionDefinition
+    actions: !include /projectdemo-main/apps/common/default-form-detail-actions.yaml
     editor:
       actions:
         - name: commit
@@ -186,8 +123,9 @@ subApps:
       form:
         tabs:
           - name: trainee
+            label: projectdemo.app.trainees.tab.trainee.label
             fields:
-              - name: traineeNo
+              - name: name
                 class: com.projectdemo.basic.form.field.definition.UniqueAssetIdFieldDefinition
                 nodeType: mgnl:trainee
                 workspace: trainees

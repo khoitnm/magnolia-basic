@@ -192,7 +192,7 @@ public class JcrNodeHelper {
     }
 
     private static long getMaxIdByNodeTypeWorkspace(final String nodeType, final String workspace, final String fieldName) {
-        final String statement = String.format("select * from [%s] where [jcr:uuid] is not null order by name desc", nodeType);
+        final String statement = String.format("select * from [%s] where [jcr:uuid] is not null order by [%s] desc", nodeType, fieldName);
         try {
             Query query = MgnlContext.getJCRSession(workspace).getWorkspace().getQueryManager().createQuery(statement, Query.JCR_SQL2);
             query.setLimit(1);

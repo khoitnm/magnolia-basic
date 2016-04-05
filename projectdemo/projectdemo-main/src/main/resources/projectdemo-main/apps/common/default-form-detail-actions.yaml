@@ -1,0 +1,5 @@
+commit:
+  implementationClass: info.magnolia.ui.form.action.SaveFormAction
+  class: info.magnolia.ui.form.action.SaveFormActionDefinition
+cancel:
+  class: info.magnolia.ui.form.action.CancelFormActionDefinition

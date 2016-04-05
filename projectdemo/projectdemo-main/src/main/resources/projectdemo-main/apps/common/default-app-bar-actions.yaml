@@ -1,0 +1,59 @@
+addFolder:
+  icon: icon-add-folder
+  class: info.magnolia.ui.framework.action.AddFolderActionDefinition
+  label: common.action.addFolder
+  availability:
+    root: true
+editFolder:
+  icon: icon-edit
+  dialogName: ui-framework:folder
+  class: info.magnolia.ui.framework.action.OpenEditDialogActionDefinition
+  label: common.action.editFolder
+deleteFolder:
+  icon: icon-delete
+  class: info.magnolia.ui.framework.action.DeleteItemActionDefinition
+  label: common.action.deleteFolder
+addItem:
+  subAppId: detail
+  icon: icon-add-item
+  nodeType: mgnl:trainee
+  appName: trainees
+  class: info.magnolia.ui.contentapp.detail.action.CreateItemActionDefinition
+  label: common.action.addItem
+  availability:
+    root: true
+    nodeTypes:
+      - mgnl:folder
+editItem:
+  subAppId: detail
+  icon: icon-edit
+  appName: trainees
+  class: info.magnolia.ui.contentapp.detail.action.EditItemActionDefinition
+  label: common.action.editItem
+  availability:
+    nodeTypes:
+      - mgnl:trainee
+deleteItem:
+  icon: icon-delete
+  class: info.magnolia.ui.framework.action.DeleteItemActionDefinition
+  label: common.action.deleteItem
+  availability:
+    multiple: true
+publish:
+  command: activate
+  icon: icon-publish
+  catalog: versioned
+  class: info.magnolia.ui.framework.action.ActivationActionDefinition
+  label: common.action.publish
+  successMessage: common.action.publish.successMessage
+  availability:
+    multiple: true
+unpublish:
+  command: deactivate
+  icon: icon-unpublish
+  catalog: versioned
+  class: info.magnolia.ui.framework.action.DeactivationActionDefinition
+  label: common.action.unpublish
+  successMessage: common.action.unpublish.successMessage
+  availability:
+    multiple: true

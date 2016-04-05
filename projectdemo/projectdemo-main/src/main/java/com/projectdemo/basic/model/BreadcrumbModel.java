@@ -25,24 +25,15 @@ public class BreadcrumbModel<RD extends RenderableDefinition> extends RenderingM
         super(content, definition, parent);
         templatingFunctions = _templatingFunctions;
     }
-//    public Collection<ContentMap> getBreadcrumb() throws RepositoryException {
-//        List<Node> ancestors = ancestorsInSite(content, NodeTypes.Page.NAME);
-//
-//        List<ContentMap> items = new ArrayList<ContentMap>();
-//        for(Node current : ancestors){
-//            items.add(_templatingFunctions.asContentMap(current));
-//        }
-//        items.add(_templatingFunctions.asContentMap(content));
-//        return items;
-//    }
 
     public Collection<Link> getBreadcrumb() throws RepositoryException {
-        List<Node> ancestors = ancestorsInSite(content, NodeTypes.Page.NAME);
+        List<Node> ancestors = ancestorsInSite(parentModel.getNode(), NodeTypes.Page.NAME);
 
         List<Link> items = new ArrayList<Link>();
-        for(Node current : ancestors){
-            items.add(new LinkImpl(current, _templatingFunctions));
+        for(Node childNode : ancestors){
+            items.add(new LinkImpl(childNode, _templatingFunctions));
         }
+        items.add(new LinkImpl(parentModel.getNode(), _templatingFunctions));
         return items;
     }
 

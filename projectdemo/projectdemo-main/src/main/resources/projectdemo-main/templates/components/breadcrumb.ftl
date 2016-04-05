@@ -1,5 +1,5 @@
 <nav class="b-breadcrumb--content" role="navigation" id="breadcrumb" data-css="b-breadcrumb">
-    <h2 class="breadcrumb__headline">Visited pages</h2>
+    <h2 class="breadcrumb__headline">Breadcrumb</h2>
     <ol class="breadcrumb__list is-container">
     [#list model.breadcrumb as item]
         [#if item_has_next]
