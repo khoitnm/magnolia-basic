@@ -8,6 +8,6 @@
     [#assign nodeProduct = model.getProductInfo(productId!)! /]
 <div style="background-color: #DDD; border: 1px solid #CCC; padding: 10px;">
     <h3>${nodeProduct[productTitlePropertyName]!}</h3>
-${nodeProduct[productDescriptionPropertyName]!}
+    <p>${nodeProduct[productDescriptionPropertyName]!}</p>
 </div>
 [/#list]

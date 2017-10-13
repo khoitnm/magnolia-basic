@@ -27,7 +27,7 @@
     [@cms.area name="navigation"/]
 
     [#--Main Content Area--]
-    [@cms.area name="main"/]
+    [@cms.area name="main" /]
 
     [#--Footer Area--]
     [@cms.area name="footer" /]

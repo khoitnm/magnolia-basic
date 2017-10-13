@@ -1,6 +1,7 @@
 package com.projectdemo.basic.model;
 
 import com.projectdemo.basic.common.constant.ProductConstants;
+import com.projectdemo.basic.common.util.JcrQueryHelper;
 import info.magnolia.jcr.util.ContentMap;
 import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.rendering.model.RenderingModel;

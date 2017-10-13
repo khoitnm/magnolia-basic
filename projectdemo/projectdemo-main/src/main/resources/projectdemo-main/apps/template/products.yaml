@@ -159,7 +159,7 @@ subApps:
                 i18n: true
               - name: image
                 class: info.magnolia.ui.form.field.definition.LinkFieldDefinition
-                targetWorkspace: dam
+                targetWorkspace: product
                 appName: assets
                 label: Select image
                 identifierToPathConverter:
